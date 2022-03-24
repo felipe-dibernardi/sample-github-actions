@@ -2,7 +2,7 @@ clean:
 	./gradlew clean
 
 build: clean
-	./gradlew build
+	./gradlew build --debug
 
 test: clean
 	./gradlew test
