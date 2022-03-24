@@ -1,0 +1,7 @@
+name: Build and Test
+on: [push]
+jobs:
+  Compile:
+    runs-on: ubuntu-latest
+    steps:
+      - run: make build
