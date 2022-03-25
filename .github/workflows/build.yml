@@ -16,19 +16,6 @@ jobs:
           distribution: 'adopt'
       - name: Run Makefile build
         run: make build
-      - name: Upload jar file
-        uses: actions/upload-artifact@v3
-        with:
-          name: executable
-          path: build/libs/*.jar
-  Build_Image:
-    needs: [Build]
-    runs-on: ubuntu-latest
-    steps:
-      - name: Download jar file
-        uses: actions/download-artifact@v2
-        with:
-          name: executable
       - name: Build Docker Image
-        run: docker build . -f Dockerfile -t sample-hello-world
+        run: docker build . -f Dockerfile -t felipedibernardi/sample-hello-world
 
