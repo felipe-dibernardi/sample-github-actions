@@ -19,6 +19,15 @@ jobs:
       - name: Upload jar file
         uses: actions/upload-artifact@v3
         with:
-          name: Package
+          name: executable
           path: build/libs/*.jar
+  Build_Image:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download jar file
+        uses: actions/download-artifact@v2
+        with:
+          name: executable
+      - name: Build Docker Image
+        run: docker build . -f Dockerfile -t sample-hello-world
 
