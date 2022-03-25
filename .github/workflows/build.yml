@@ -22,6 +22,7 @@ jobs:
           name: executable
           path: build/libs/*.jar
   Build_Image:
+    needs: [Build]
     runs-on: ubuntu-latest
     steps:
       - name: Download jar file
